@@ -38,6 +38,13 @@ figure, header, nav, section, article, aside, footer, figcaption {
   outline: 0;
 }
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 .clearfix:after {
   content: ".";
   display: block;

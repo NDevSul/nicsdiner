@@ -14,6 +14,11 @@ use Illuminate\Cache\RedisTaggedCache;
 
 class HomeController extends Controller
 {
+    public function menu(){
+        $data = food::all();
+        return view("menu", compact("data"));
+    }
+
     public function index()
     {
         if (Auth::id()) {
@@ -97,6 +102,7 @@ class HomeController extends Controller
             $data->price = $request->price[$key];
             $data->quantity = $request->quantity[$key];
 
+            $data->category = $request->category;
             $data->name = $request->name;
             $data->phone = $request->phone;
             $data->address = $request->address;

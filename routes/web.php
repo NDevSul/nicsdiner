@@ -17,6 +17,7 @@ use App\Http\Controllers\AdminController;
 
 
 Route::get("/", [HomeController::class, "index"]);
+Route::get("/menu", [HomeController::class, "menu"]);
 
 Route::get("/users", [AdminController::class, "user"]);
 Route::get("/deleteuser/{id}", [AdminController::class, "deleteuser"]);

@@ -4,6 +4,8 @@
 
     <head>
         @include('admin.admincss')
+        <title>Nic's Diner</title>
+
     </head>
 
     <body>

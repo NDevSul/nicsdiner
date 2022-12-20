@@ -26,8 +26,8 @@
                         <td style="padding:30px">Address</td>
                         <td style="padding:30px">Food Name</td>
                         <td style="padding:30px">Price</td>
-                        <td style="padding:30px">Quantity</td>
-                        <td style="padding:30px">Category</td>
+                        <td style="padding:30px">Quantity</td>  
+                        <td style="padding:30px">Date</td>
                         <td style="padding:30px">Total Price</td>
                     </tr>
 
@@ -39,7 +39,7 @@
                             <td>{{ $data->foodname }}</td>
                             <td>Rp.{{ $data->price }}</td>
                             <td>{{ $data->quantity }}</td>
-                            <td>{{ $data->category }}</td>
+                            <td>{{ $data->date }}</td>
                             <td>Rp.{{ $data->price * $data->quantity }}</td>
                         </tr>
                     @endforeach

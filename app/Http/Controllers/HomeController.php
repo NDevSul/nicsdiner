@@ -102,13 +102,15 @@ class HomeController extends Controller
             $data->price = $request->price[$key];
             $data->quantity = $request->quantity[$key];
 
-            $data->category = $request->category;
             $data->name = $request->name;
             $data->phone = $request->phone;
+            $data->date = $request->date;
             $data->address = $request->address;
+            $data->notes = $request->notes;
+
 
             $data->save();
         }
-        return redirect()->back()->with('success', 'Order Success!');
+        return redirect()->back()->with('success', 'Order Success! You will be contacted by our admin soon!');
     }
 }

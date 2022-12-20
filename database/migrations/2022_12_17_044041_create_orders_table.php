@@ -20,8 +20,9 @@ return new class extends Migration
             $table->string('quantity')->nullable();
             $table->string('name')->nullable();
             $table->string('phone')->nullable();
+            $table->string('date')->nullable();
             $table->string('address')->nullable();
-            $table->string('category')->nullable();
+            $table->string('notes')->nullable();
             $table->timestamps();
         });
     }

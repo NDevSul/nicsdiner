@@ -110,7 +110,7 @@
                 <th style="padding: 30px">Action</th>
             </tr>
 
-            <form action="{{url('/orderconfirm')}}" method="POST">
+            <form action="{{ url('/orderconfirm') }}" method="POST">
                 @csrf
 
                 @foreach ($data as $data)
@@ -136,35 +136,57 @@
 
         </table>
 
-
-        <div align="center" style="padding:10px;">
-            <button class="btn btn-primary" type="button" id="order">Order Now</button>
-
-        </div>
-
-        <div id="appear" align="center" style="padding: 10px; display: none;">
-
-            <div style="padding: 10px">
-                <label>Name</label>
-                <input type="text"name="name" placeholder="Name">
+        <div class="px-auto center bg-orange-300">
+            <div class="col-lg-6">
+                <div class="contact-form">
+                    <form id="contact" action="" method="post">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h4 class="font-bold text-center">Order Now</h4>
+                            </div>
+                            <div class="col-lg-6 col-sm-12">
+                                <fieldset>
+                                    <input name="name" type="text" id="name" placeholder="Your Name*"
+                                        required="">
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-6 col-sm-12">
+                                <fieldset>
+                                    <input name="address" type="text" id="address" placeholder="Your Address*"
+                                        required="">
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-6 col-sm-12">
+                                <fieldset>
+                                    <input name="phone" type="text" id="phone" placeholder="Phone Number*"
+                                        required="">
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-6">
+                                <div id="filterDate2">
+                                    <div class="input-group date" data-date-format="dd/mm/yyyy">
+                                        <input name="date" id="date" type="text" class="form-control"
+                                            placeholder="Pre-Order Date" required="">
+                                        <div class="input-group-addon">
+                                            <span class="glyphicon glyphicon-th"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <fieldset>
+                                    <textarea name="message" rows="6" id="message" placeholder="Notes"></textarea>
+                                </fieldset>
+                            </div>
+                            <div style="padding: 10px">
+                                <input class="btn btn-success" type="submit" value="Check Out">
+                
+                                <button id="close" type="button" class="btn btn-danger">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-
-            <div style="padding: 10px">
-                <label>Phone</label>
-                <input type="number"name="phone" placeholder="Phone Number">
-            </div>
-
-            <div style="padding: 10px">
-                <label>Address</label>
-                <input type="text"name="address" placeholder="Address">
-            </div>
-
-            <div style="padding: 10px">
-                <input class="btn btn-success" type="submit" value="Order Confirm">
-
-                <button id="close" type="button" class="btn btn-danger">Cancel</button>
-            </div>
-
         </div>
 
         </form>

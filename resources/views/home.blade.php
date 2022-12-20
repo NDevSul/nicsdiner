@@ -57,13 +57,8 @@
 
                             <li class="scroll-to-section"><a href="#menu">Menu</a></li>
                             <li class="scroll-to-section"><a href="#galleryz">Gallery</a></li>
-                            <li class="submenu">
-                                <a href="javascript:;">Offers</a>
-                                <ul>
-                                    <li class="scroll-to-section"><a href="#tabs-1">#BreakfastMenu</a></li>
-                                    <li class="scroll-to-section"><a href="#tabs-2">#LunchMenu</a></li>
-                                    <li class="scroll-to-section"><a href="#tabs-3">#DinnerMenu</a></li>
-                                </ul>
+                            <li class="scroll-to-section">
+                                <a href="#testimony">Testimony</a>
                             </li>
                             <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li>
 
@@ -76,34 +71,31 @@
                                 @endauth
 
                                 @Guest
-
                                     Cart[0]
-
                                 @endguest
                                 </a>
                             </li>
 
                             <li>
                                 @if (Route::has('login'))
-                                    <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                                        @auth
-                                <li>
+                                    <div class="hidden fixed top-0 py-4 sm:block">
+                                        @auth </div>
+                                <li class="px-2">
                                     <x-app-layout>
-
                                     </x-app-layout>
                                 <li>
                                 @else
                                 <li class="submenu">
                                     <a href="javascript:;">Profile</a>
-                                    <Ul>
+                                    <ul>
                                         <li> <a href="{{ route('login') }}"
                                                 class="text-sm text-gray-700 dark:text-gray-500 underline">Login</a></li>
 
                                         @if (Route::has('register'))
                                             <li> <a href="{{ route('register') }}"
-                                                    class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                                                    class="text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
                                             </li>
-                                    </Ul>
+                                    </ul>
                                 </li>
                                 @endif
                             @endauth
@@ -256,89 +248,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="contact-form">
-                        <form id="contact" action="" method="post">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <h4>Order Now</h4>
-                                </div>
-                                <div class="col-lg-6 col-sm-12">
-                                    <fieldset>
-                                        <input name="name" type="text" id="name" placeholder="Your Name*"
-                                            required="">
-                                    </fieldset>
-                                </div>
-                                <div class="col-lg-6 col-sm-12">
-                                    <fieldset>
-                                        <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*"
-                                            placeholder="Your Email Address" required="">
-                                    </fieldset>
-                                </div>
-                                <div class="col-lg-6 col-sm-12">
-                                    <fieldset>
-                                        <input name="phone" type="text" id="phone"
-                                            placeholder="Phone Number*" required="">
-                                    </fieldset>
-                                </div>
-                                <div class="col-md-6 col-sm-12">
-                                    <fieldset>
-                                        <select value="number-guests" name="number-guests" id="number-guests">
-                                            <option value="number-guests">Number Of Guests</option>
-                                            <option name="1" id="1">1</option>
-                                            <option name="2" id="2">2</option>
-                                            <option name="3" id="3">3</option>
-                                            <option name="4" id="4">4</option>
-                                            <option name="5" id="5">5</option>
-                                            <option name="6" id="6">6</option>
-                                            <option name="7" id="7">7</option>
-                                            <option name="8" id="8">8</option>
-                                            <option name="9" id="9">9</option>
-                                            <option name="10" id="10">10</option>
-                                            <option name="11" id="11">11</option>
-                                            <option name="12" id="12">12</option>
-                                        </select>
-                                    </fieldset>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div id="filterDate2">
-                                        <div class="input-group date" data-date-format="dd/mm/yyyy">
-                                            <input name="date" id="date" type="text" class="form-control"
-                                                placeholder="dd/mm/yyyy">
-                                            <div class="input-group-addon">
-                                                <span class="glyphicon glyphicon-th"></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-12">
-                                    <fieldset>
-                                        <select value="Order Menu" name="ordermenu" id="ordermenu">
-                                            <option value="ordermenu">Order Menu</option>
-                                            <option name="Nasi Goreng" id="nasigoreng">Nasi Goreng</option>
-                                            <option name="Nasi Goreng Spesial" id="nasigorengspesial">Nasi Goreng
-                                                Spesial</option>
-                                            <option name="Mie Goreng" id="miegoreng">Mie Goreng</option>
-                                            <option name="Kwetiau Goreng" id="kwetiaugoreng">Kwetiau Goreng</option>
-                                            <option name="Nasi Ayam Katsu" id="nasiayam">Nasi Ayam Katsu</option>
-                                        </select>
-                                    </fieldset>
-                                </div>
-                                <div class="col-lg-12">
-                                    <fieldset>
-                                        <textarea name="message" rows="6" id="message" placeholder="Notes" required=""></textarea>
-                                    </fieldset>
-                                </div>
-                                <div class="col-lg-12">
-                                    <fieldset>
-                                        <button type="submit" id="form-submit" class="main-button-icon">Order
-                                            Now</button>
-                                    </fieldset>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </section>
@@ -350,8 +260,8 @@
             <div class="row">
                 <div class="col-lg-4 offset-lg-4 text-center">
                     <div class="section-heading">
-                        <h6>Nic’s Week</h6>
-                        <h2>This Week’s Special Food Offers</h2>
+                        <h6>Testimony</h6>
+                        <h2>This is Nic's Diner<br>Customers Said</h2>
                     </div>
                 </div>
             </div>

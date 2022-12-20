@@ -39,7 +39,7 @@
             <span class="menu-icon">
               <i class="mdi mdi-chart-bar"></i>
             </span>
-            <span class="menu-title">Orderan </span>
+            <span class="menu-title">Order List</span>
           </a>
         </li>
 

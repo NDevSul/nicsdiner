@@ -3,7 +3,7 @@
     <html lang="en">
 
     <head>
-
+        <title>Nic's Diner Admin</title>
         <base href="/public">
         @include('admin.admincss')
     </head>
@@ -13,33 +13,35 @@
             @include('admin.navbar')
 
             <div style="position: relative; top: 60px; right : -150px">
-                <form action="{{url('/update',$data->id)}}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('/update', $data->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div>
                         <label>Name</label>
-                        <input style="color:black" type="text" name="title" value="{{$data->title}}" required>
+                        <input style="color:black" type="text" name="title" value="{{ $data->title }}" required>
                     </div>
 
                     <div>
                         <label>Price</label>
-                        <input style="color:black" type="num" name="price" value="{{$data->price}}"  required>
+                        <input style="color:black" type="num" name="price" value="{{ $data->price }}" required>
                     </div>
 
 
                     <div>
                         <label>Category</label>
-                        <input style="color:black" type="text" name="category" value="{{$data->category}}"  required>
+                        <input style="color:black" type="text" name="category" value="{{ $data->category }}"
+                            required>
                     </div>
 
                     <div>
                         <label>Description</label>
-                        <input style="color:black" type="text" name="description" value="{{$data->description}}"  required>
+                        <input style="color:black" type="text" name="description" value="{{ $data->description }}"
+                            required>
                     </div>
 
                     <div>
                         <label>Old Image</label>
-                        <img height="200" width="200" src="/foodimage/{{$data->image}}">
+                        <img height="200" width="200" src="/foodimage/{{ $data->image }}">
                     </div>
 
                     <div>
@@ -48,13 +50,15 @@
                     </div>
 
                     <div>
-                        <input style="color:aqua" type="submit"  value="Save">
+                        <button
+                            class="bg-yellow-200 hover:bg-orange-300 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"><input
+                                style="color:#834a00" type="submit" value="Save"></button>
                     </div>
                 </form>
 
                 <div>
-        </div>
-        @include('admin.adminscript')
+                </div>
+                @include('admin.adminscript')
     </body>
 
     </html>

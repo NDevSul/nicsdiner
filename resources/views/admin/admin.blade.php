@@ -8,7 +8,7 @@
 
     </head>
 
-    <body>
+    <body class="bg-orange-300">
         <div class="container-scroller">
             @include('admin.navbar')
         </div>

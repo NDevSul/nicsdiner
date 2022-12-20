@@ -24,21 +24,21 @@
 </head>
 
 <body>
-   <!-- ***** Menu Area Starts ***** -->
-<section class="section" id="menu">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="section-heading">
-                    <h6>Nic's Diner Menu</h6>
-                    <h2>Menu</h2>
+    <!-- ***** Menu Area Starts ***** -->
+    <section class="section" id="menu">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="section-heading">
+                        <h6>Nic's Diner Menu</h6>
+                        <h2>Menu</h2>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
         <div class="w-16 md:w-32 lg:w-48 col-lg-3" style="overflow-x:auto">
-                @foreach ($data as $fooddata)
-                <form action="{{url('/addcart',$fooddata->id)}}" method="POST">
+            @foreach ($data as $fooddata)
+                <form action="{{ url('/addcart', $fooddata->id) }}" method="POST" class="m-10">
                     @csrf
                     <div class="item">
                         <div style="background-image: url('{{ asset("foodimage/{$fooddata->image}") }}');"
@@ -55,40 +55,14 @@
                     <input type="number" name="quantity" min="0" value="1" width="80px">
                     <input type="submit" value="Add To Cart">
                 </form>
-                @endforeach
+            @endforeach
         </div>
-    </div>
-</section>
-<!-- ***** Menu Area Ends ***** -->
+        </div>
+    </section>
+    <!-- ***** Menu Area Ends ***** -->
 
 
-    <!-- ***** Footer Start ***** -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-xs-12">
-                    <div class="right-text-content">
-                        <ul class="social-icons">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="logo">
-                        <a href="#top"><img src="assets/images/nicsdiner.png" width="200px" height="100px"></a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-xs-12">
-                    <div class="left-text-content">
-                        <p>© Copyright Weetjaksah Company</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    @include('footer')
 
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>

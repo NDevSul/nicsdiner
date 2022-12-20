@@ -180,7 +180,7 @@
                             </div>
                             <div style="padding: 10px">
                                 <input class="btn btn-success" type="submit" value="Check Out">
-                
+
                                 <button id="close" type="button" class="btn btn-danger">Cancel</button>
                             </div>
                         </div>
@@ -206,6 +206,9 @@
             }
         );
     </script>
+
+    @include('footer')
+
 
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>

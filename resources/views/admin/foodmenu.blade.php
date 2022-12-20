@@ -9,10 +9,12 @@
     <body class="bg-orange-300">
         <div class="container-scroller">
             @include('admin.navbar')
+            
             <div style="position: relative; top: 60px;">
+                <h3 class="text-center font-bold">Add New Menu</h3>
                 <div class="px-20">
                     <form action="{{ url('/uploadfood') }}" method="POST" enctype="multipart/form-data"
-                        class="content-center">
+                        class="content-center; right: -400px;">
                         @csrf
 
                         <div class="pb-2">
@@ -22,7 +24,7 @@
                         </div>
 
                         <div class="pb-2">
-                            <label class="font-bold">Price (in Rupiah)</label>
+                            <label class="font-bold">Price (in Rupiah per portion)</label>
                             <br>
                             <input style="color:#000" type="number" name="price" placeholder="Menu Price"
                                 required>
@@ -59,7 +61,7 @@
                     <table bgcolor="orange">
                         <tr>
                             <th style="padding: 30px"> Food Name </th>
-                            <th style="padding: 30px">Price</th>
+                            <th style="padding: 30px">Price (in Rupiah per portion)</th>
                             <th style="padding: 30px">Description</th>
                             <th style="padding: 30px">Category</th>
                             <th style="padding: 30px">Image</th>

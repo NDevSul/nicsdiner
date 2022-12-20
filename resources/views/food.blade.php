@@ -4,8 +4,8 @@
         <div class="row">
             <div class="col-lg-4">
                 <div class="section-heading">
-                    <h6>Our Menu</h6>
-                    <h2>Our selection of cakes with quality taste</h2>
+                    <h6>Nic's Diner Menu</h6>
+                    <h2>The Quality of Indonesian Cuisine</h2>
                 </div>
             </div>
         </div>

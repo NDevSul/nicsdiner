@@ -54,7 +54,7 @@ class AdminController extends Controller
         $data->description = $request->description;
 
         $data->save();
-        return redirect()->back();
+        return redirect('foodmenu');
     }
 
     public function foodmenu()

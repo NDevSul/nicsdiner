@@ -109,6 +109,6 @@ class HomeController extends Controller
 
             $data->save();
         }
-        return redirect()->back();
+        return redirect()->back()->withSuccess('Order Successfully added!');
     }
 }

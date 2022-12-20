@@ -70,17 +70,18 @@
 
                             <li class="scroll-to-section">
                                 @auth
-                                 <a href="{{url('/showcart',Auth::user()->id)}}">
-                                Cart [{{$count}}] 
-                                 </a>
-                            @endauth
+                                    <a href="{{ url('/showcart', Auth::user()->id) }}">
+                                        Cart [{{ $count }}]
+                                    </a>
+                                @endauth
 
-                            @Guest
+                                @Guest
 
-                                Cart[0]
+                                    Cart[0]
 
-                            @endguest
-                            </a></li>
+                                @endguest
+                                </a>
+                            </li>
 
                             <li>
                                 @if (Route::has('login'))
@@ -92,13 +93,18 @@
                                     </x-app-layout>
                                 <li>
                                 @else
-                                <li> <a href="{{ route('login') }}"
-                                        class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a></li>
+                                <li class="submenu">
+                                    <a href="javascript:;">Profile</a>
+                                    <Ul>
+                                        <li> <a href="{{ route('login') }}"
+                                                class="text-sm text-gray-700 dark:text-gray-500 underline">Login</a></li>
 
-                                @if (Route::has('register'))
-                                    <li> <a href="{{ route('register') }}"
-                                            class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                                    </li>
+                                        @if (Route::has('register'))
+                                            <li> <a href="{{ route('register') }}"
+                                                    class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                                            </li>
+                                    </Ul>
+                                </li>
                                 @endif
                             @endauth
                         </ul>

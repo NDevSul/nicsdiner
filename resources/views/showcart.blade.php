@@ -158,7 +158,7 @@
                             </div>
                             <div class="col-lg-6 col-sm-12">
                                 <fieldset>
-                                    <input name="phone" type="text" id="phone" placeholder="Phone Number*"
+                                    <input name="phone" type="text" id="phone" placeholder="WA Number*"
                                         required="">
                                 </fieldset>
                             </div>
@@ -166,7 +166,7 @@
                                 <div id="filterDate2">
                                     <div class="input-group date" data-date-format="dd/mm/yyyy">
                                         <input name="date" id="date" type="text" class="form-control"
-                                            placeholder="Pre-Order Date" required="">
+                                            placeholder="Pre-Order Date*" required="">
                                         <div class="input-group-addon">
                                             <span class="glyphicon glyphicon-th"></span>
                                         </div>

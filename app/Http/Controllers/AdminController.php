@@ -152,4 +152,10 @@ class AdminController extends Controller
         $data=order::where('name','Like','%' .$search. '%')->orWhere('foodname','Like','%' .$search. '%')->get();
         return view('admin.orders', compact('data'));
     }
+    public function deleteorder($id)
+    {
+        $data = order::find($id);
+        $data->delete();
+        return redirect()->back();
+    }
 }

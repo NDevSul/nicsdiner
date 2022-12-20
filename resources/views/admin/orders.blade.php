@@ -30,6 +30,7 @@
                         <td style="padding:30px">Date</td>
                         <td style="padding:30px">Total Price</td>
                         <td style="padding:30px">Notes</td>
+                        <td style="padding:30px"></td>
                     </tr>
 
                     @foreach ($data as $data)
@@ -43,6 +44,7 @@
                             <td>{{ $data->date }}</td>
                             <td>Rp.{{ $data->price * $data->quantity }}</td>
                             <td>{{ $data->notes }}</td>
+                            <td><a href="{{ url('/deleteorder', $data->id) }}">Delete</td>
                         </tr>
                     @endforeach
 

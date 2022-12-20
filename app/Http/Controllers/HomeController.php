@@ -72,7 +72,7 @@ class HomeController extends Controller
         $count = cart::where('user_id', $id)->count();
 
         if (Auth::id() == $id) {
-
+if('user_id' )
             $cartdata = cart::select('*')->where('user_id', '=', $id)->get();
 
             $data = cart::where('user_id', $id)->join('food', 'carts.food_id', "=", "food.id")->get();

@@ -45,7 +45,7 @@ Route::get("/remove/{id}", [HomeController::class, "remove"]);
 
 Route::post("/orderconfirm", [HomeController::class, "orderconfirm"]);
 Route::get("/orders", [AdminController::class, "orders"]);
-Route::get("/search", [AdminController::class, "search"]);
+Route::get("/deleteorder/{id}", [AdminController::class, "deleteorder"]);
 
 
 Route::get("/redirects", [HomeController::class, "redirects"]);

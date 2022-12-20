@@ -29,6 +29,7 @@
                         <td style="padding:30px">Quantity</td>  
                         <td style="padding:30px">Date</td>
                         <td style="padding:30px">Total Price</td>
+                        <td style="padding:30px">Notes</td>
                     </tr>
 
                     @foreach ($data as $data)
@@ -41,6 +42,7 @@
                             <td>{{ $data->quantity }}</td>
                             <td>{{ $data->date }}</td>
                             <td>Rp.{{ $data->price * $data->quantity }}</td>
+                            <td>{{ $data->notes }}</td>
                         </tr>
                     @endforeach
 

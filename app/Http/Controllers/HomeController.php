@@ -111,6 +111,6 @@ class HomeController extends Controller
 
             $data->save();
         }
-        return redirect()->back()->with('success', 'Order Success! You will be contacted by our admin soon!');
+        return redirect()->back()->with('success', 'Order Success!', 'You will be contacted by our admin soon!');
     }
 }

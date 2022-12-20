@@ -175,7 +175,7 @@
                             </div>
                             <div class="col-lg-12">
                                 <fieldset>
-                                    <textarea name="message" rows="6" id="message" placeholder="Notes"></textarea>
+                                    <textarea name="notes" rows="6" id="notes" placeholder="Notes"></textarea>
                                 </fieldset>
                             </div>
                             <div style="padding: 10px">

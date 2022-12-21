@@ -87,6 +87,7 @@
                 </div>
             </div>
             @include('admin.adminscript')
+            @include('footer')
     </body>
 
     </html>

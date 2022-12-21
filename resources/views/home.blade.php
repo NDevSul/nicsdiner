@@ -73,17 +73,16 @@
                                 @Guest
                                     Cart[0]
                                 @endguest
-                                </a>
                             </li>
 
-                            <li>
+                            <li class="hide">
                                 @if (Route::has('login'))
-                                    <div class="hidden fixed top-0 py-4 sm:block">
+                                    <div>
                                         @auth </div>
-                                <li class="px-2">
+                                <li class="">
                                     <x-app-layout>
                                     </x-app-layout>
-                                <li>
+                                </li>
                                 @else
                                 <li class="submenu">
                                     <a href="javascript:;">Profile</a>
@@ -99,6 +98,7 @@
                                 </li>
                                 @endif
                             @endauth
+                            </li>
                         </ul>
                 </div>
                 @endif
@@ -248,7 +248,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </section>

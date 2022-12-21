@@ -52,13 +52,13 @@
                         <!-- EndLogo -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="/" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="/">Home</a></li>
 
 
                             <li class="scroll-to-section" style="color :#FFC555">
                                 @auth
-                                    <a href="{{ url('/showcart', Auth::user()->id) }}">
-                                        Cart {{ $count }}
+                                    <a class="active" href="{{ url('/showcart', Auth::user()->id) }}">
+                                        Cart [{{ $count }}]
                                     </a>
                                 @endauth
 
@@ -102,41 +102,44 @@
     </header>
 
     <div id="top">
-        <table align="center" bgcolor="yellow">
-            <tr>
-                <th style="padding: 30px">Food Name</th>
-                <th style="padding: 30px">Food Price</th>
-                <th style="padding: 30px">Quantity</th>
-                <th style="padding: 30px">Action</th>
-            </tr>
+        <div class="px-auto center">
+            <table align="center" bgcolor="#FFF9B0">
+                <tr>
+                    <th style="padding: 30px">Food Name</th>
+                    <th style="padding: 30px">Food Price</th>
+                    <th style="padding: 30px">Quantity</th>
+                    <th style="padding: 30px">Action</th>
+                </tr>
 
-            <form action="{{ url('/orderconfirm') }}" method="POST">
-                @csrf
+                <form action="{{ url('/orderconfirm') }}" method="POST">
+                    @csrf
 
-                @foreach ($data as $data)
-                    <tr align="center">
-                        <td><input type="text" name="foodname[]" value="{{ $data->title }}" hidden="">
-                            {{ $data->title }}
-                        </td>
-                        <td><input type="text" name="price[]" value="{{ $data->price }}" hidden="">
-                            {{ $data->price }}
-                        </td>
-                        <td><input type="text" name="quantity[]" value="{{ $data->quantity }}" hidden="">
-                            {{ $data->quantity }}
-                        </td>
-                    </tr>
-                @endforeach
+                    @foreach ($data as $data)
+                        <tr align="center">
+                            <td><input type="text" name="foodname[]" value="{{ $data->title }}" hidden="">
+                                {{ $data->title }}
+                            </td>
+                            <td><input type="text" name="price[]" value="{{ $data->price }}" hidden="">
+                                {{ $data->price }}
+                            </td>
+                            <td><input type="text" name="quantity[]" value="{{ $data->quantity }}" hidden="">
+                                {{ $data->quantity }}
+                            </td>
+                        </tr>
+                    @endforeach
 
 
-                @foreach ($cartdata as $cartdata)
-                    <tr style="position: relative; top: -60px; right: -442px;">
-                        <td><a href="{{ url('/remove', $cartdata->id) }}" class="btn btn-warning">Remove</a></td>
-                    </tr>
-                @endforeach
+                    @foreach ($cartdata as $cartdata)
+                        <tr style="position: relative; top: -60px; right: -442px;">
+                            <td><a href="{{ url('/remove', $cartdata->id) }}" class="btn btn-warning">Remove</a></td>
+                        </tr>
+                    @endforeach
 
-        </table>
+            </table>
+        </div>
 
-        <div class="px-auto center bg-orange-300">
+
+        <div class="px-auto center" style="background-color:#FFF9B0">
             <div class="col-lg-6">
                 <div class="contact-form">
                     <form id="contact" action="" method="post">

@@ -28,6 +28,10 @@ font & reset css
 reset
 --------------------------------------------- 
 */
+.hide{
+  display: none !important;
+}
+
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, div
 pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q,
 s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
@@ -254,7 +258,7 @@ header
   line-height: 100px;
   color: #fff;
   font-size: 28px;
-  font-weight: 700;
+  font-weight: 700 !important;
   text-transform: uppercase;
   letter-spacing: 2px;
   float: left;
@@ -296,7 +300,7 @@ header
 
 .header-area .main-nav .nav li a {
   display: block;
-  font-weight: 600;
+  font-weight: 600 !important;
   font-size: 15px;
   color: #2a2a2a;
   text-transform: capitalize;
@@ -377,7 +381,7 @@ header
   transition: all 0.3s ease 0s;
   position: relative;
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 400 !important;
   border-bottom: 1px solid #eee;
 }
 
@@ -678,13 +682,13 @@ banner
   font-family: 'Dancing Script', cursive;
   color: #fff;
   font-size: 54px;
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 
 #top .left-content h6 {
   font-size: 15px;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 600 !important;
   color: #fff;
   letter-spacing: 3px;
   margin-top: 5px;
@@ -1034,7 +1038,7 @@ menu
   font-family: 'FontAwesome';
   color: #FFC555;
   font-size: 25px;
-  font-weight: 700;
+  font-weight: 700 !important;
   content: '\f104';
 }
 
@@ -1066,7 +1070,7 @@ menu
   font-family: 'FontAwesome';
   color: #FFC555;
   font-size: 25px;
-  font-weight: 700;
+  font-weight: 700 !important;
   content: '\f105';
 }
 

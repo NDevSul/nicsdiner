@@ -19,7 +19,7 @@
                         <div style="background-image: url('{{ asset("foodimage/{$fooddata->image}") }}');"
                             class='card'>
                             <div class="price">
-                                <h6>{{ $fooddata->price }}</h6>
+                                <h6>Rp{{ $fooddata->price}}K</h6>
                             </div>
                             <div class='info'>
                                 <h1 class='title'>{{ $fooddata->title }}</h1>

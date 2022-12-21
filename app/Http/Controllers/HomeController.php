@@ -15,8 +15,12 @@ use Illuminate\Cache\RedisTaggedCache;
 class HomeController extends Controller
 {
     public function menu(){
+
         $data = food::all();
-        return view("menu", compact("data"));
+        $user_id=Auth::id();
+        $count=cart::where('user_id', $user_id)->count();
+
+        return view("menu", compact('data','count'));
     }
 
     public function index()

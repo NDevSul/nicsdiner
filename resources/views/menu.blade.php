@@ -21,9 +21,78 @@
     <link rel="stylesheet" href="assets/css/owl-carousel.css">
     <link rel="stylesheet" href="assets/css/lightbox.css">
 </head>
-</head>
+
 
 <body>
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- Logo -->
+                        <a href="#top" class="logo">
+                            <img src="assets/images/nicsdiner.png" width="160px" height="80px">
+                            <a class="menu-trigger">
+                                <span>Menu</span>
+                            </a>
+                        </a>
+                        <!-- EndLogo -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li class="scroll-to-section"><a href="/redirects">Home</a></li>
+                            <li class="scroll-to-section"><a href="#about">About</a></li>
+
+                            <li class="scroll-to-section"><a href="#menu" class="active">Menu</a></li>
+                            <li class="scroll-to-section"><a href="#galleryz">Gallery</a></li>
+                            <li class="scroll-to-section">
+                                <a href="#testimony">Testimony</a>
+                            </li>
+                            <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li>
+
+
+                            <li class="scroll-to-section">
+                                @auth
+                                    <a href="{{ url('/showcart', Auth::user()->id) }}">
+                                        Cart [{{ $count }}]
+                                    </a>
+                                @endauth
+
+                                @Guest
+                                    Cart[0]
+                                @endguest
+                            </li>
+
+                            <li class="hide">
+                                @if (Route::has('login'))
+                                    <div>
+                                        @auth </div>
+                                @else
+                                <li class="submenu">
+                                    <a href="javascript:;">Profile</a>
+                                    <ul>
+                                        <li> <a href="{{ route('login') }}"
+                                                class="text-sm text-gray-700 dark:text-gray-500 underline">Login</a></li>
+
+                                        @if (Route::has('register'))
+                                            <li> <a href="{{ route('register') }}"
+                                                    class="text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                                            </li>
+                                    </ul>
+                                </li>
+                                @endif
+                            @endauth
+                            </li>
+                        </ul>
+                </div>
+                @endif
+                </li>
+            </ul>
+                </nav>
+            </div>
+        </div>
+        </div>
+    </header>
+    
     <!-- ***** Menu Area Starts ***** -->
     <section class="section" id="menu">
         <div class="container">

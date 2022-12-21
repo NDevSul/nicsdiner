@@ -111,54 +111,31 @@
                     <th style="padding: 30px" class="border-collapse border border-black">Action</th>
                 </tr>
 
-                {{-- <form action="{{ url('/orderconfirm') }}" method="POST">
-                    @csrf
-
-                    @foreach ($data as $data)
-                        <tr align="center">
-                            <td class="border-collapse border border-black py-2"><input type="text" name="foodname[]"
-                                    value="{{ $data->title }}" hidden="">
-                                {{ $data->title }}
-                            </td>
-                            <td class="border-collapse border border-black"><input type="text" name="price[]"
-                                    value="{{ $data->price }}" hidden="">
-                                {{ $data->price }}
-                            </td>
-                            <td class="border-collapse border border-black"><input type="text" name="quantity[]"
-                                    value="{{ $data->quantity }}" hidden="">
-                                {{ $data->quantity }}
-                            </td>
-                    @endforeach
-
-
-                    @foreach ($cartdata as $cartdata)
-                        <td class=""><a href="{{ url('/remove', $cartdata->id) }}"
-                                class="btn btn-warning">Remove</a></td>
-                    @endforeach
-                    </tr>
-                </form> --}}
                 <form action="{{ url('/orderconfirm') }}" method="POST">
                     @csrf
 
                     @foreach ($data as $data)
-                        <tr align="center">
-                            <td class="border-collapse border border-black py-2"><input type="text" name="foodname[]"
-                                    value="{{ $data->title }}" hidden="">
-                                {{ $data->title }}
-                            </td>
-                            <td class="border-collapse border border-black"><input type="text" name="price[]"
-                                    value="{{ $data->price }}" hidden="">
-                                {{ $data->price }}
-                            </td>
-                            <td class="border-collapse border border-black"><input type="text" name="quantity[]"
-                                    value="{{ $data->quantity }}" hidden="">
-                                {{ $data->quantity }}
-                            </td>
-                            <td class="border-collapse border border-black"><input type="text" name="quantity[]"
-                                    value="{{ $data->quantity }}" hidden="">
-                                {{ $data->quantity }}
-                            </td>
-                        </tr>
+                        @foreach ($cartdata as $cartdata)
+                            <tr align="center">
+                                <td class="border-collapse border border-black py-2"><input type="text"
+                                        name="foodname[]" value="{{ $data->title }}">
+                                    {{ $data->title }}
+                                </td>
+                                <td class="border-collapse border border-black"><input type="text" name="price[]"
+                                        value="{{ $data->price }}">
+                                    {{ $data->price }}
+                                </td>
+                                <td class="border-collapse border border-black"><input type="text" name="quantity[]"
+                                        value="{{ $data->quantity }}">
+                                    {{ $data->quantity }}
+                                </td>
+                                <td class="border-collapse border border-black"><input type="text">
+                                    {{ $cartdata->id }}
+                                </td>
+                                {{-- <td class=""><a href="{{ url('/remove', $cartdata->id) }}"
+                                        class="btn btn-warning">Remove</a></td> --}}
+                            </tr>
+                        @endforeach
                     @endforeach
                 </form>
             </table>

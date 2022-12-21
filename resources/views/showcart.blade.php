@@ -103,12 +103,12 @@
 
     <div id="top">
         <div class="px-auto center">
-            <table align="center" bgcolor="#FFF9B0">
+            <table align="center" bgcolor="#FFF9B0" class="border-collapse border border-black">
                 <tr>
-                    <th style="padding: 30px">Food Name</th>
-                    <th style="padding: 30px">Food Price</th>
-                    <th style="padding: 30px">Quantity</th>
-                    <th style="padding: 30px">Action</th>
+                    <th style="padding: 30px" class="border-collapse border border-black">Food Name</th>
+                    <th style="padding: 30px" class="border-collapse border border-black">Food Price</th>
+                    <th style="padding: 30px" class="border-collapse border border-black">Quantity</th>
+                    <th style="padding: 30px" class="border-collapse border border-black">Action</th>
                 </tr>
 
                 <form action="{{ url('/orderconfirm') }}" method="POST">
@@ -116,13 +116,13 @@
 
                     @foreach ($data as $data)
                         <tr align="center">
-                            <td><input type="text" name="foodname[]" value="{{ $data->title }}" hidden="">
+                            <td class="border-collapse border border-black"><input type="text" name="foodname[]" value="{{ $data->title }}" hidden="">
                                 {{ $data->title }}
                             </td>
-                            <td><input type="text" name="price[]" value="{{ $data->price }}" hidden="">
+                            <td class="border-collapse border border-black"><input type="text" name="price[]" value="{{ $data->price }}" hidden="">
                                 {{ $data->price }}
                             </td>
-                            <td><input type="text" name="quantity[]" value="{{ $data->quantity }}" hidden="">
+                            <td class="border-collapse border border-black"><input type="text" name="quantity[]" value="{{ $data->quantity }}" hidden="">
                                 {{ $data->quantity }}
                             </td>
                         </tr>
@@ -137,7 +137,7 @@
 
             </table>
         </div>
-
+        <br><br>
 
         <div class="px-auto center" style="background-color:#FFF9B0">
             <div class="col-lg-6">
@@ -195,6 +195,7 @@
         </form>
 
     </div>
+    @include('footer')
 
     <script type="text/javascript">
         $("#order").click(
@@ -210,7 +211,6 @@
         );
     </script>
 
-    @include('footer')
 
 
     <!-- jQuery -->

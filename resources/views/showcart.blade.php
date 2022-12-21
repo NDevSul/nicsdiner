@@ -52,12 +52,12 @@
                         <!-- EndLogo -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="/" class="active">Home</a></li>
+                            <li class="scroll-to-section"><a href="/">Home</a></li>
 
 
                             <li class="scroll-to-section" style="color :#FFC555">
                                 @auth
-                                    <a href="{{ url('/showcart', Auth::user()->id) }}">
+                                    <a class="active" href="{{ url('/showcart', Auth::user()->id) }}">
                                         Cart [{{ $count }}]
                                     </a>
                                 @endauth
@@ -191,6 +191,8 @@
                     </form>
                 </div>
             </div>
+
+            @include('footer')
        
 
         <script type="text/javascript">

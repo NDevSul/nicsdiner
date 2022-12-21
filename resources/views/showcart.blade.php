@@ -62,11 +62,6 @@
                                     </a>
                                 @endauth
 
-                                @Guest
-
-                                    Cart[0]
-
-                                @endguest
                                 </a>
                             </li>
 
@@ -110,19 +105,38 @@
         <div class="px-auto center">
             <table align="center" bgcolor="#FFF9B0" class="border-collapse border border-black">
                 <tr>
-                    <th style="padding: 30px" class="border-collapse border border-black">Action</th>
                     <th style="padding: 30px" class="border-collapse border border-black">Food Name</th>
                     <th style="padding: 30px" class="border-collapse border border-black">Food Price</th>
                     <th style="padding: 30px" class="border-collapse border border-black">Quantity</th>
-
+                    <th style="padding: 30px" class="border-collapse border border-black">Action</th>
                 </tr>
-                @foreach ($cartdata as $cartdata)
-                    <tr style="position: relative; top: -80px; left: auto;">
+
+                {{-- <form action="{{ url('/orderconfirm') }}" method="POST">
+                    @csrf
+
+                    @foreach ($data as $data)
+                        <tr align="center">
+                            <td class="border-collapse border border-black py-2"><input type="text" name="foodname[]"
+                                    value="{{ $data->title }}" hidden="">
+                                {{ $data->title }}
+                            </td>
+                            <td class="border-collapse border border-black"><input type="text" name="price[]"
+                                    value="{{ $data->price }}" hidden="">
+                                {{ $data->price }}
+                            </td>
+                            <td class="border-collapse border border-black"><input type="text" name="quantity[]"
+                                    value="{{ $data->quantity }}" hidden="">
+                                {{ $data->quantity }}
+                            </td>
+                    @endforeach
+
+
+                    @foreach ($cartdata as $cartdata)
                         <td class=""><a href="{{ url('/remove', $cartdata->id) }}"
                                 class="btn btn-warning">Remove</a></td>
+                    @endforeach
                     </tr>
-                @endforeach
-
+                </form> --}}
                 <form action="{{ url('/orderconfirm') }}" method="POST">
                     @csrf
 
@@ -140,12 +154,13 @@
                                     value="{{ $data->quantity }}" hidden="">
                                 {{ $data->quantity }}
                             </td>
+                            <td class="border-collapse border border-black"><input type="text" name="quantity[]"
+                                    value="{{ $data->quantity }}" hidden="">
+                                {{ $data->quantity }}
+                            </td>
                         </tr>
                     @endforeach
                 </form>
-
-
-
             </table>
 
         </div>
@@ -197,7 +212,7 @@
                                 <button type="submit"class="btn btn-success">Check Out</button>
                             </div>
                             <div class="col-sm px-10 mt-5">
-                                <button type="submit" class="btn btn-danger">Cancel</button>
+                                <button type="button" class="btn btn-danger"><a href="/"> Cancel</a></button>
                             </div>
                         </div>
                     </form>

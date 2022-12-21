@@ -45,6 +45,9 @@
                         <!-- Logo -->
                         <a href="#top" class="logo">
                             <img src="assets/images/nicsdiner.png" width="160px" height="80px">
+                            <a class="menu-trigger">
+                                <span>Menu</span>
+                            </a>
                         </a>
                         <!-- EndLogo -->
                         <!-- ***** Menu Start ***** -->

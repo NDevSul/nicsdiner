@@ -46,8 +46,11 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- Logo -->
-                        <a href="#top" class="logo">
+                        <a href="/" class="logo">
                             <img src="assets/images/nicsdiner.png" width="160px" height="80px">
+                            <a class="menu-trigger">
+                                <span>Menu</span>
+                            </a>
                         </a>
                         <!-- EndLogo -->
                         <!-- ***** Menu Start ***** -->
@@ -96,7 +99,45 @@
     </header>
 
     <div id="top">
-        <table align="center" bgcolor="#FFF9B0">
+        <section class="bg-light p-5">
+            <div class="table-responsive" id="no-more-tables">
+                <table class="table bg-white">
+                    <thead class="bg-dark text-light">
+                        <tr>
+                            <th style="padding: 30px">Food Name</th>
+                            <th style="padding: 30px">Food Price</th>
+                            <th style="padding: 30px">Quantity</th>
+                            <th style="padding: 30px">Action</th>
+                        </tr>
+                    </thead>
+                    <form action="{{ url('orderconfirm') }}" method="POST">
+                        @csrf
+                    <tbody>
+                        @foreach ($data as $data)
+                        <tr>
+                            <td data-title="Name"><input type="text" name="foodname[]" value="{{ $data->title }}" hidden="">
+                                {{ $data->title }}
+                            </td>
+                            <td data-title="Price"><input type="text" name="price[]" value="{{ $data->price }}" hidden="">
+                                {{ $data->price }}
+                            </td>
+                            <td data-title="Quantity"><input type="text" name="quantity[]" value="{{ $data->quantity }}" hidden="">
+                                {{ $data->quantity }}
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                    @foreach ($cartdata as $cartdata)
+                    <tr style="position:relative">
+                        <td align="center"><a href="{{ url('/remove', $cartdata->id) }}" class="btn btn-warning">Remove</a></td>
+                    </tr>
+                @endforeach
+                </table>
+            </div>
+        </section>
+
+
+        {{-- <table align="center" bgcolor="#FFF9B0">
             <tr>
                 <th style="padding: 30px">Food Name</th>
                 <th style="padding: 30px">Food Price</th>
@@ -127,73 +168,68 @@
                         <td><a href="{{ url('/remove', $cartdata->id) }}" class="btn btn-warning">Remove</a></td>
                     </tr>
                 @endforeach
-        </table>
-
-        {{-- 
-        <div align="center" style="padding:10px;">
-            <button class="bg-orange-300 hover:bg-orange-400" type="button" id="order">Order Now</button>
-        </div>  --}}
+        </table> --}}
 
         <tr>
             <th style="padding-bottom: 30px"></th>
         </tr>
         <br>
-            
-            <div class="center text-center py-8" style="background-color:#FFF9B0; position: relative;">
-                <div class="center col-lg-6 lg:max-xl:flex">
-                    <div class="contact-form">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <h4 class="font-bold text-center pb-4">Order Now</h4>
-                            </div>
-                            <div class="col-lg-12 col-sm-6">
-                                <fieldset>
-                                    <input name="name" type="text" id="name" placeholder="Your Name*"
-                                        required="">
-                                </fieldset>
-                            </div>
-                            <div class="col-lg-12 col-sm-6">
-                                <fieldset>
-                                    <input name="address" type="text" id="address" placeholder="Your Address*"
-                                        required="">
-                                </fieldset>
-                            </div>
-                            <div class="col-lg-12 col-sm-6">
-                                <fieldset>
-                                    <input name="phone" type="text" id="phone" placeholder="WA Number*"
-                                        required="">
-                                </fieldset>
-                            </div>
-                            <div class="col-lg-12">
-                                <div id="filterDate2">
-                                    <div class="input-group date" data-date-format="dd/mm/yyyy">
-                                        <input name="date" id="date" type="text" class="form-control"
-                                            placeholder="Pre-Order Date*" required="">
-                                        <div class="input-group-addon">
-                                            <span class="glyphicon glyphicon-th"></span>
-                                        </div>
+
+        <div class="center text-center py-8" style="background-color:#FFF9B0; position: relative;">
+            <div class="center col-lg-6 lg:max-xl:flex">
+                <div class="contact-form">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h4 class="font-bold text-center pb-4">Order Now</h4>
+                        </div>
+                        <div class="col-lg-12 col-sm-6">
+                            <fieldset>
+                                <input name="name" type="text" id="name" placeholder="Your Name*"
+                                    required="">
+                            </fieldset>
+                        </div>
+                        <div class="col-lg-12 col-sm-6">
+                            <fieldset>
+                                <input name="address" type="text" id="address" placeholder="Your Address*"
+                                    required="">
+                            </fieldset>
+                        </div>
+                        <div class="col-lg-12 col-sm-6">
+                            <fieldset>
+                                <input name="phone" type="text" id="phone" placeholder="WA Number*"
+                                    required="">
+                            </fieldset>
+                        </div>
+                        <div class="col-lg-12">
+                            <div id="filterDate2">
+                                <div class="input-group date" data-date-format="dd/mm/yyyy">
+                                    <input name="date" id="date" type="text" class="form-control"
+                                        placeholder="Pre-Order Date*" required="">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-th"></span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-12 pt-3">
-                                <fieldset>
-                                    <textarea name="notes" rows="6" id="notes" placeholder="Notes"></textarea>
-                                </fieldset>
-                            </div>
-                            <div class="col-sm px-10 mt-5">
-                                <button type="submit"class="btn btn-success">Check Out</button>
-                            </div>
-                            <div class="col-sm px-10 mt-5">
-                                <button type="button" class="btn btn-danger"><a href="/"> Cancel</a></button>
-                            </div>
+                        </div>
+                        <div class="col-lg-12 pt-3">
+                            <fieldset>
+                                <textarea name="notes" rows="6" id="notes" placeholder="Notes"></textarea>
+                            </fieldset>
+                        </div>
+                        <div class="col-sm px-10 mt-5">
+                            <button type="submit"class="btn btn-success">Check Out</button>
+                        </div>
+                        <div class="col-sm px-10 mt-5">
+                            <button type="button" class="btn btn-danger"><a href="/"> Cancel</a></button>
                         </div>
                     </div>
-                    </form>
                 </div>
+                </form>
             </div>
+        </div>
 
-            @include('footer')
-       
+        @include('footer')
+
 
         <script type="text/javascript">
             $("#order").click(

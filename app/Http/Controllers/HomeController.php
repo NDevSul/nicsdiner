@@ -126,7 +126,7 @@ if('user_id' )
     {
         $testimonydata = new testimony();
 
-        $testimonydata->name = $request->name;
+        $testimonydata->name = $request->comment;
         $testimonydata->comment = $request->comment;
 
         $testimonydata->save();

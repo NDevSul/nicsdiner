@@ -58,15 +58,9 @@
                             <li class="scroll-to-section" style="color :#FFC555">
                                 @auth
                                     <a href="{{ url('/showcart', Auth::user()->id) }}">
-                                        Cart {{ $count }}
+                                        Cart [{{ $count }}]
                                     </a>
                                 @endauth
-
-                                @Guest
-
-                                    Cart[0]
-
-                                @endguest
                                 </a>
                             </li>
 
@@ -102,7 +96,7 @@
     </header>
 
     <div id="top">
-        <table align="center" bgcolor="yellow">
+        <table align="center" bgcolor="#FFF9B0">
             <tr>
                 <th style="padding: 30px">Food Name</th>
                 <th style="padding: 30px">Food Price</th>
@@ -110,7 +104,7 @@
                 <th style="padding: 30px">Action</th>
             </tr>
 
-            <form action="{{url('orderconfirm')}}" method="POST">
+            <form action="{{ url('orderconfirm') }}" method="POST">
                 @csrf
 
                 @foreach ($data as $data)
@@ -135,98 +129,121 @@
                 @endforeach
         </table>
 
-
+        {{-- 
         <div align="center" style="padding:10px;">
-            <button class="btn btn-primary" type="button" id="order">Order Now</button>
+            <button class="bg-orange-300 hover:bg-orange-400" type="button" id="order">Order Now</button>
+        </div>  --}}
 
-        </div>
-
-        <div id="appear" align="center" style="padding: 10px; display: none;">
-
-            <div style="padding: 10px">
-                <label>Name</label>
-                <input type="text"name="name" placeholder="Name" required>
+        <tr>
+            <th style="padding-bottom: 30px"></th>
+        </tr>
+        <br>
+            
+            <div class="center text-center py-8" style="background-color:#FFF9B0; position: relative;">
+                <div class="center col-lg-6 lg:max-xl:flex">
+                    <div class="contact-form">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h4 class="font-bold text-center pb-4">Order Now</h4>
+                            </div>
+                            <div class="col-lg-12 col-sm-6">
+                                <fieldset>
+                                    <input name="name" type="text" id="name" placeholder="Your Name*"
+                                        required="">
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-12 col-sm-6">
+                                <fieldset>
+                                    <input name="address" type="text" id="address" placeholder="Your Address*"
+                                        required="">
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-12 col-sm-6">
+                                <fieldset>
+                                    <input name="phone" type="text" id="phone" placeholder="WA Number*"
+                                        required="">
+                                </fieldset>
+                            </div>
+                            <div class="col-lg-12">
+                                <div id="filterDate2">
+                                    <div class="input-group date" data-date-format="dd/mm/yyyy">
+                                        <input name="date" id="date" type="text" class="form-control"
+                                            placeholder="Pre-Order Date*" required="">
+                                        <div class="input-group-addon">
+                                            <span class="glyphicon glyphicon-th"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 pt-3">
+                                <fieldset>
+                                    <textarea name="notes" rows="6" id="notes" placeholder="Notes"></textarea>
+                                </fieldset>
+                            </div>
+                            <div class="col-sm px-10 mt-5">
+                                <button type="submit"class="btn btn-success">Check Out</button>
+                            </div>
+                            <div class="col-sm px-10 mt-5">
+                                <button type="button" class="btn btn-danger"><a href="/"> Cancel</a></button>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                </div>
             </div>
+       
 
-            <div style="padding: 10px">
-                <label>Phone</label>
-                <input type="number"name="phone" placeholder="Phone Number" required>
-            </div>
+        <script type="text/javascript">
+            $("#order").click(
+                function() {
+                    $("#appear").show();
+                }
+            );
 
-            <div style="padding: 10px">
-                <label>Address</label>
-                <input type="text"name="address" placeholder="Address" required>
-            </div>
+            $("#close").click(
+                function() {
+                    $("#appear").hide();
+                }
+            );
+        </script>
 
-            <div style="padding: 10px">
-                <label>Notes</label>
-                <input type="text"name="notes" placeholder="notes" required>
-            </div>
+        <!-- jQuery -->
+        <script src="assets/js/jquery-2.1.0.min.js"></script>
 
-            <div style="padding: 10px">
-                <input class="btn btn-success" type="submit" value="Order Confirm"></a>
+        <!-- Bootstrap -->
+        <script src="assets/js/popper.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
 
-                <button id="close" type="button" class="btn btn-danger">Cancel</button>
-            </div>
+        <!-- Plugins -->
+        <script src="assets/js/owl-carousel.js"></script>
+        <script src="assets/js/accordions.js"></script>
+        <script src="assets/js/datepicker.js"></script>
+        <script src="assets/js/scrollreveal.min.js"></script>
+        <script src="assets/js/waypoints.min.js"></script>
+        <script src="assets/js/jquery.counterup.min.js"></script>
+        <script src="assets/js/imgfix.min.js"></script>
+        <script src="assets/js/slick.js"></script>
+        <script src="assets/js/lightbox.js"></script>
+        <script src="assets/js/isotope.js"></script>
 
-        </div>
+        <!-- Global Init -->
+        <script src="assets/js/custom.js"></script>
+        <script>
+            $(function() {
+                var selectedClass = "";
+                $("p").click(function() {
+                    selectedClass = $(this).attr("data-rel");
+                    $("#portfolio").fadeTo(50, 0.1);
+                    $("#portfolio div").not("." + selectedClass).fadeOut();
+                    setTimeout(function() {
+                        $("." + selectedClass).fadeIn();
+                        $("#portfolio").fadeTo(50, 1);
+                    }, 500);
 
-        </form>
-
-    </div>
-
-    <script type="text/javascript">
-
-        $("#order").click(
-            function() {
-                $("#appear").show();
-            }
-        );
-
-        $("#close").click(
-            function() {
-                $("#appear").hide();
-            }
-        );
-    </script>
-
-    <!-- jQuery -->
-    <script src="assets/js/jquery-2.1.0.min.js"></script>
-
-    <!-- Bootstrap -->
-    <script src="assets/js/popper.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-
-    <!-- Plugins -->
-    <script src="assets/js/owl-carousel.js"></script>
-    <script src="assets/js/accordions.js"></script>
-    <script src="assets/js/datepicker.js"></script>
-    <script src="assets/js/scrollreveal.min.js"></script>
-    <script src="assets/js/waypoints.min.js"></script>
-    <script src="assets/js/jquery.counterup.min.js"></script>
-    <script src="assets/js/imgfix.min.js"></script>
-    <script src="assets/js/slick.js"></script>
-    <script src="assets/js/lightbox.js"></script>
-    <script src="assets/js/isotope.js"></script>
-
-    <!-- Global Init -->
-    <script src="assets/js/custom.js"></script>
-    <script>
-        $(function() {
-            var selectedClass = "";
-            $("p").click(function() {
-                selectedClass = $(this).attr("data-rel");
-                $("#portfolio").fadeTo(50, 0.1);
-                $("#portfolio div").not("." + selectedClass).fadeOut();
-                setTimeout(function() {
-                    $("." + selectedClass).fadeIn();
-                    $("#portfolio").fadeTo(50, 1);
-                }, 500);
-
+                });
             });
-        });
-    </script>
-    @include('sweetalert::alert')
+        </script>
+        @include('sweetalert::alert')
 </body>
 
 </html>

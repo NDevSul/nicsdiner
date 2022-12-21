@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Food;
 use App\Models\order;
 use App\Models\FoodGallery;
+use App\Models\testimony;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Cache\RedisTaggedCache;
 
@@ -117,4 +118,22 @@ if('user_id' )
         }
         return redirect()->back()->with('success', 'Order Success!', 'You will be contacted by our admin soon!');
     }
+
+    public function uploadcomment(Request $request, $id)
+{
+    if (auth::id()) {
+        $user_id = Auth::id();
+
+        $comment = $id;
+        $comment = $request->comment;
+
+        $testi = new testimony();
+        $testi->user_id = $user_id;
+        $testi->comment = $comment;
+        $testi->save();
+        return redirect()->back();
+    } else {
+        return redirect('/login');
+    }
+}
 }

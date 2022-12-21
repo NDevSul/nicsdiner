@@ -31,7 +31,7 @@
                             <th class="border border-slate-600" style="padding: 30px">Action</th>
                         </tr>
 
-                        @foreach ($data as $data)
+                        @foreach ($datauser as $data)
                             <tr align="center">
                                 <td class="border border-slate-600">{{ $data->name }}</td>
                                 <td class="border border-slate-600">{{ $data->email }}</td>

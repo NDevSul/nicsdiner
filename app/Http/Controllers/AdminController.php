@@ -13,8 +13,8 @@ class AdminController extends Controller
 {
     public function user()
     {
-        $data = user::all();
-        return view("admin.users", compact("data"));
+        $datauser = user::all();
+        return view("admin.users", compact("datauser"));
     }
 
 
@@ -149,7 +149,7 @@ class AdminController extends Controller
     public function search(Request $request){
 
         $search=$request->search;
-        $data=order::where('name','Like','%' .$search. '%')->orWhere('foodname','Like','%' .$search. '%')->get();
+        $data=order::where('name','Like','%' .$search. '%')->orWhere('foodname','Like','%' .$search. '%')->orWhereDate('date','Like','%' .$search. '%')->get();
         return view('admin.orders', compact('data'));
     }
     public function deleteorder($id)

@@ -47,7 +47,8 @@ Route::post("/orderconfirm", [HomeController::class, "orderconfirm"]);
 Route::get("/orders", [AdminController::class, "orders"]);
 Route::get("/deleteorder/{id}", [AdminController::class, "deleteorder"]);
 
-Route::post("/uploadcomment", [HomeController::class, "uploadcomment"]);
+Route::post("/addtestimony/{id}", [HomeController::class, "addtestimony"]);
+Route::get("/showtestimony/{id}", [HomeController::class, "showtestimony"]);
 
 
 Route::get("/redirects", [HomeController::class, "redirects"]);

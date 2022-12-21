@@ -57,9 +57,6 @@
                                     </a>
                                 @endauth
 
-                                @Guest
-                                    Cart[0]
-                                @endguest
                             </li>
 
                             <li class="hide">

@@ -52,43 +52,43 @@
                         <!-- EndLogo -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li class="scroll-to-section"><a href="/">Home</a></li>
+                            <li class="scroll-to-section"><a href="/" class="active">Home</a></li>
 
 
                             <li class="scroll-to-section" style="color :#FFC555">
                                 @auth
-                                    <a class="active" href="{{ url('/showcart', Auth::user()->id) }}">
-                                        Cart [{{ $count }}]
+                                    <a href="{{ url('/showcart', Auth::user()->id) }}">
+                                        Cart {{ $count }}
                                     </a>
                                 @endauth
 
+                                @Guest
+
+                                    Cart[0]
+
+                                @endguest
                                 </a>
                             </li>
 
-                            <li class="hide">
+                            <li>
                                 @if (Route::has('login'))
-                                    <div>
-                                        @auth </div>
-                                <li class="">
+                                    <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                                        @auth
+                                <li>
                                     <x-app-layout>
-                                    </x-app-layout>
-                                </li>
-                            @else
-                                <li class="submenu">
-                                    <a href="javascript:;">Profile</a>
-                                    <ul>
-                                        <li> <a href="{{ route('login') }}"
-                                                class="text-sm text-gray-700 dark:text-gray-500 underline">Login</a></li>
 
-                                        @if (Route::has('register'))
-                                            <li> <a href="{{ route('register') }}"
-                                                    class="text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                                            </li>
-                                    </ul>
-                                </li>
+                                    </x-app-layout>
+                                <li>
+                                @else
+                                <li> <a href="{{ route('login') }}"
+                                        class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a></li>
+
+                                @if (Route::has('register'))
+                                    <li> <a href="{{ route('register') }}"
+                                            class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                                    </li>
                                 @endif
                             @endauth
-                            </li>
                         </ul>
                 </div>
                 @endif
@@ -102,98 +102,71 @@
     </header>
 
     <div id="top">
-        <div class="px-auto center">
-            <table align="center" bgcolor="#FFF9B0" class="border-collapse border border-black">
-                <tr>
-                    <th style="padding: 30px" class="border-collapse border border-black">Food Name</th>
-                    <th style="padding: 30px" class="border-collapse border border-black">Food Price</th>
-                    <th style="padding: 30px" class="border-collapse border border-black">Quantity</th>
-                    <th style="padding: 30px" class="border-collapse border border-black">Action</th>
-                </tr>
+        <table align="center" bgcolor="yellow">
+            <tr>
+                <th style="padding: 30px">Food Name</th>
+                <th style="padding: 30px">Food Price</th>
+                <th style="padding: 30px">Quantity</th>
+                <th style="padding: 30px">Action</th>
+            </tr>
 
-                <form action="{{ url('/orderconfirm') }}" method="POST">
-                    @csrf
+            <form action="{{url('orderconfirm')}}" method="POST">
+                @csrf
 
-                    @foreach ($data as $data)
-                        @foreach ($cartdata as $cartdata)
-                            <tr align="center">
-                                <td class="border-collapse border border-black py-2"><input type="text"
-                                        name="foodname[]" value="{{ $data->title }}">
-                                    {{ $data->title }}
-                                </td>
-                                <td class="border-collapse border border-black"><input type="text" name="price[]"
-                                        value="{{ $data->price }}">
-                                    {{ $data->price }}
-                                </td>
-                                <td class="border-collapse border border-black"><input type="text" name="quantity[]"
-                                        value="{{ $data->quantity }}">
-                                    {{ $data->quantity }}
-                                </td>
-                                <td class="border-collapse border border-black"><input type="text">
-                                    {{ $cartdata->id }}
-                                </td>
-                                {{-- <td class=""><a href="{{ url('/remove', $cartdata->id) }}"
-                                        class="btn btn-warning">Remove</a></td> --}}
-                            </tr>
-                        @endforeach
-                    @endforeach
-                </form>
-            </table>
+                @foreach ($data as $data)
+                    <tr align="center">
+                        <td><input type="text" name="foodname[]" value="{{ $data->title }}" hidden="">
+                            {{ $data->title }}
+                        </td>
+                        <td><input type="text" name="price[]" value="{{ $data->price }}" hidden="">
+                            {{ $data->price }}
+                        </td>
+                        <td><input type="text" name="quantity[]" value="{{ $data->quantity }}" hidden="">
+                            {{ $data->quantity }}
+                        </td>
+                    </tr>
+                @endforeach
+
+
+                @foreach ($cartdata as $cartdata)
+                    <tr style="position: relative; top: -60px; right: -442px;">
+                        <td><a href="{{ url('/remove', $cartdata->id) }}" class="btn btn-warning">Remove</a></td>
+                    </tr>
+                @endforeach
+        </table>
+
+
+        <div align="center" style="padding:10px;">
+            <button class="btn btn-primary" type="button" id="order">Order Now</button>
 
         </div>
-        <br><br><br>
 
-        <div class="center text-center py-8" style="background-color:#FFF9B0">
-            <div class="center col-lg-6 lg:max-xl:flex">
-                <div class="contact-form">
-                    <form id="contact" action="" method="post">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <h4 class="font-bold text-center pb-4">Order Now</h4>
-                            </div>
-                            <div class="col-lg-12 col-sm-6">
-                                <fieldset>
-                                    <input name="name" type="text" id="name" placeholder="Your Name*"
-                                        required="">
-                                </fieldset>
-                            </div>
-                            <div class="col-lg-12 col-sm-6">
-                                <fieldset>
-                                    <input name="address" type="text" id="address" placeholder="Your Address*"
-                                        required="">
-                                </fieldset>
-                            </div>
-                            <div class="col-lg-12 col-sm-6">
-                                <fieldset>
-                                    <input name="phone" type="text" id="phone" placeholder="WA Number*"
-                                        required="">
-                                </fieldset>
-                            </div>
-                            <div class="col-lg-12">
-                                <div id="filterDate2">
-                                    <div class="input-group date" data-date-format="dd/mm/yyyy">
-                                        <input name="date" id="date" type="text" class="form-control"
-                                            placeholder="Pre-Order Date*" required="">
-                                        <div class="input-group-addon">
-                                            <span class="glyphicon glyphicon-th"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 pt-3">
-                                <fieldset>
-                                    <textarea name="notes" rows="6" id="notes" placeholder="Notes"></textarea>
-                                </fieldset>
-                            </div>
-                            <div class="col-sm px-10 mt-5">
-                                <button type="submit"class="btn btn-success">Check Out</button>
-                            </div>
-                            <div class="col-sm px-10 mt-5">
-                                <button type="button" class="btn btn-danger"><a href="/"> Cancel</a></button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+        <div id="appear" align="center" style="padding: 10px; display: none;">
+
+            <div style="padding: 10px">
+                <label>Name</label>
+                <input type="text"name="name" placeholder="Name" required>
+            </div>
+
+            <div style="padding: 10px">
+                <label>Phone</label>
+                <input type="number"name="phone" placeholder="Phone Number" required>
+            </div>
+
+            <div style="padding: 10px">
+                <label>Address</label>
+                <input type="text"name="address" placeholder="Address" required>
+            </div>
+
+            <div style="padding: 10px">
+                <label>Notes</label>
+                <input type="text"name="notes" placeholder="notes" required>
+            </div>
+
+            <div style="padding: 10px">
+                <input class="btn btn-success" type="submit" value="Order Confirm"></a>
+
+                <button id="close" type="button" class="btn btn-danger">Cancel</button>
             </div>
 
         </div>
@@ -201,9 +174,9 @@
         </form>
 
     </div>
-    @include('footer')
 
     <script type="text/javascript">
+
         $("#order").click(
             function() {
                 $("#appear").show();
@@ -216,8 +189,6 @@
             }
         );
     </script>
-
-
 
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>

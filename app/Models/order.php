@@ -16,5 +16,6 @@ class order extends Model
         'name',
         'phone',
         'address',
+        'notes',
     ];
 }

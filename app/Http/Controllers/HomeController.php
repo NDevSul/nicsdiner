@@ -9,8 +9,10 @@ use App\Models\User;
 use App\Models\Food;
 use App\Models\order;
 use App\Models\FoodGallery;
+use App\Models\testimony;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Cache\RedisTaggedCache;
+use PHPUnit\Framework\Test;
 
 class HomeController extends Controller
 {
@@ -117,4 +119,36 @@ if('user_id' )
         }
         return redirect()->back()->with('success', 'Order Success!', 'You will be contacted by our admin soon!');
     }
+
+
+
+    public function addtestimony(Request $request)
+    {
+        $testimonydata = new testimony();
+
+        $testimonydata->name = $request->name;
+        $testimonydata->comment = $request->comment;
+
+        $testimonydata->save();
+        return redirect()->back();
+    }
+
+    public function showtestimony(Request $request, $id)
+    {
+
+        if (Auth::id() == $id) {
+if('user_id' )
+            $testimonydata = testimony::select('*')->where('user_id', '=', $id)->get();
+
+            $data = testimony::where('user_id', $id)->join('users', 'testimony.user_id', "=", "users.id")->get();
+
+            return view('showtestimony', compact('data', 'testimonydata'));
+            
+        } else {
+            return redirect()->back();
+        }
+    }
+
+
+
 }

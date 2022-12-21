@@ -283,87 +283,28 @@
                         </div>
                         <div class="col-lg-12">
                             <section class='tabs-content'>
-                                <article id='tabs-1'>
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="row">
-                                                <div class="left-list">
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-01.png" alt="">
-                                                            <h4>Nasi Goreng</h4>
-                                                            <p>Nasi goreng disajikan dengan ayam suwir dan bumbu ciri
-                                                                khas, sangat enak untuk disantap secara hangat</p>
-                                                            <div class="price">
-                                                                <h6>Rp 15K</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-02.png" alt="">
-                                                            <h4>Jus Jeruk</h4>
-                                                            <p>Jeruk fresh diperas murni tanpa kandungan gula </p>
-                                                            <div class="price">
-                                                                <h6>Rp 8K</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-03.png" alt="">
-                                                            <h4>Fruit Salad</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing
-                                                                elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$9.90</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="row">
-                                                <div class="right-list">
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-04.png" alt="">
-                                                            <h4>Eggs Omelette</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing
-                                                                elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$6.50</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-05.png" alt="">
-                                                            <h4>Dollma Pire</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing
-                                                                elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$5.00</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-12">
-                                                        <div class="tab-item">
-                                                            <img src="assets/images/tab-item-06.png" alt="">
-                                                            <h4>Omelette & Cheese</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing
-                                                                elit, sed do.</p>
-                                                            <div class="price">
-                                                                <h6>$4.10</h6>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </article>
+                                <form action="{{ url('/addtestimony') }}" method="POST" enctype="multipart/form-data"
+                                class="content-center; right: -400px;">
+                                @csrf
+        
+                                <div class="pb-2">
+                                    <label class="font-bold">Name</label>
+                                    <br>
+                                    <input style="color:#000" type="text" name="name" placeholder="Name" required>
+                                </div>
+
+                                <div class="pb-2">
+                                    <label class="font-bold">Testimony</label>
+                                    <br>
+                                    <input style="color:#000" type="text" name="comment" placeholder="Comment's" required>
+                                </div>
+        
+                                <div class="pb-10 pt-2">
+                                    <button
+                                        class="bg-orange-700 hover:bg-yellow-300 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow justify-items-center"><input
+                                            style="color:#fff" type="submit" value="Save"></button>
+                                </div>
+                            </form>
                                 <article id='tabs-2'>
                                     <div class="row">
                                         <div class="col-lg-6">

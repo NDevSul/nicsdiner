@@ -24,7 +24,7 @@
                         </div>
 
                         <div class="pb-2">
-                            <label class="font-bold">Price (in Rupiah per portion)</label>
+                            <label class="font-bold">Price (in IDR per portion, please input without 000-thousand)</label>
                             <br>
                             <input style="color:#000" type="number" name="price" placeholder="Menu Price"
                                 required>
@@ -61,7 +61,7 @@
                     <table bgcolor="orange">
                         <tr>
                             <th style="padding: 30px"> Food Name </th>
-                            <th style="padding: 30px">Price (in Rupiah per portion)</th>
+                            <th style="padding: 30px">Price (in IDR per portion)</th>
                             <th style="padding: 30px">Description</th>
                             <th style="padding: 30px">Category</th>
                             <th style="padding: 30px">Image</th>

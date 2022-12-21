@@ -42,7 +42,7 @@
                             <td>Rp.{{ $data->price }}</td>
                             <td>{{ $data->quantity }}</td>
                             <td>{{ $data->date }}</td>
-                            <td>Rp.{{ $data->price * $data->quantity }}</td>
+                            <td>Rp.{{ $data->price * $data->quantity }}K</td>
                             <td>{{ $data->notes }}</td>
                             <td><a href="{{ url('/deleteorder', $data->id) }}">Delete</td>
                         </tr>

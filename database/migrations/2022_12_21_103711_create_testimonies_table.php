@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('testimonies', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('name')->constrained('users');
             $table->string('name')->nullable();
             $table->string('comment')->nullable();
             $table->timestamps();

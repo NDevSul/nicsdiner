@@ -304,7 +304,7 @@
                             </form>
                             <table bgcolor="#ffd555">
                                 <tr>
-                                    <th style="padding: 30px">Name </th>
+                                    <th style="padding: 30px">Name's </th>
                                     <th style="padding: 30px">Comment</th>
                                 </tr>
         

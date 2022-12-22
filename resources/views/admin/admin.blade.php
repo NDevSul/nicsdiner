@@ -11,13 +11,9 @@
     <body class="bg-orange-300">
         <div class="container-scroller">
             @include('admin.navbar')
-            <h1 style="font-bold">WELCOME BACK ADMIN!</h1>
+            <h1 style="font-bold" align="center">WELCOME BACK ADMIN!</h1>
         </div>
         @include('admin.adminscript')
-
-        <div class="justify-center">
-            @include('footer')
-        </div>
     </body>
 
     </html>

@@ -19,7 +19,7 @@
                         <div style="background-image: url('{{ asset("foodimage/{$fooddata->image}") }}');"
                             class='card'>
                             <div class="price">
-                                <h6>Rp{{ $fooddata->price}}K</h6>
+                                <h6>Rp{{ $fooddata->price }}K</h6>
                             </div>
                             <div class='info'>
                                 <h1 class='title'>{{ $fooddata->title }}</h1>
@@ -32,12 +32,12 @@
                         </div>
                     </div>
                 @endforeach
-            </div>      
+            </div>
         </div>
-        <br>
+
         <div class="d-flex justify-content-center">
             <button class="btn btn-warning"><a href="/menu">See All</a></button>
-          </div>
+        </div>
     </div>
     </div>
 </section>

@@ -107,31 +107,35 @@
                             <th style="padding: 30px">Food Name</th>
                             <th style="padding: 30px">Food Price</th>
                             <th style="padding: 30px">Quantity</th>
-                            <th style="padding: 30px">Action</th>
                         </tr>
                     </thead>
                     <form action="{{ url('orderconfirm') }}" method="POST">
                         @csrf
-                    <tbody>
-                        @foreach ($data as $data)
-                        <tr>
-                            <td data-title="Name"><input type="text" name="foodname[]" value="{{ $data->title }}" hidden="">
-                                {{ $data->title }}
-                            </td>
-                            <td data-title="Price"><input type="text" name="price[]" value="{{ $data->price }}" hidden="">
-                                {{ $data->price }}
-                            </td>
-                            <td data-title="Quantity"><input type="text" name="quantity[]" value="{{ $data->quantity }}" hidden="">
-                                {{ $data->quantity }}
-                            </td>
-                        </tr>
+                        <tbody>
+                            @foreach ($data as $data)
+                                <tr>
+                                    <td data-title="Name"><input type="text" name="foodname[]"
+                                            value="{{ $data->title }}" hidden="">
+                                        {{ $data->title }}
+                                    </td>
+                                    <td data-title="Price"><input type="text" name="price[]"
+                                            value="{{ $data->price }}" hidden="">
+                                        {{ $data->price }}
+                                    </td>
+                                    <td data-title="Quantity"><input type="text" name="quantity[]"
+                                            value="{{ $data->quantity }}" hidden="">
+                                        {{ $data->quantity }}
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                        @foreach ($cartdata as $cartdata)
+                            <tr>
+                                <th style="padding: 30px">Action</th>
+                                <td align="center"><a href="{{ url('/remove', $cartdata->id) }}"
+                                        class="btn btn-warning">Remove</a></td>
+                            </tr>
                         @endforeach
-                    </tbody>
-                    @foreach ($cartdata as $cartdata)
-                    <tr style="position:relative">
-                        <td align="center"><a href="{{ url('/remove', $cartdata->id) }}" class="btn btn-warning">Remove</a></td>
-                    </tr>
-                @endforeach
                 </table>
             </div>
         </section>

@@ -79,7 +79,7 @@
                                     <x-app-layout>
                                     </x-app-layout>
                                 </li>
-                            @else
+                                @else
                                 <li class="submenu">
                                     <a href="javascript:;">Profile</a>
                                     <ul>
@@ -271,53 +271,52 @@
                                 <div class="row">
                                     <div class="col-lg-6 offset-lg-3">
                                         <ul>
-                                            <li><a href='#testimony' id="testimony"><img
-                                                        src="assets/images/tab-icon-01.png"
+                                            <li><a href='#testimony' id="testimony"><img src="assets/images/tab-icon-01.png"
                                                         alt="">Testimony!!</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="mx-auto">
-                            <div class="col-lg-12">
-                                <section class='tabs-content'>
-                                    <form action="{{ url('/addtestimony') }}" method="POST"
-                                        enctype="multipart/form-data" class="content-center; right: -400px;">
-                                        @csrf
+                        <div class="col-lg-12">
+                            <section class='tabs-content'>
+                                <form action="{{ url('/addtestimony') }}" method="POST" enctype="multipart/form-data"
+                                class="content-center; right: -400px;">
+                                @csrf
 
-                                        <div class="pb-2">
-                                            <input style="color:#000" type="text" name="name"
-                                                placeholder="Name" required>
-                                        </div>
-
-                                        <textarea name="comment" placeholder="{{ __('Testimony') }}"
-                                            class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"></textarea>
-
-
-                                        <div class="pb-10 pt-2">
-                                            <button
-                                                class="hover:bg-yellow-700 font-semibold py-2 px-4 rounded shadow justify-items-center"><input
-                                                    style="background:#FFC555" type="submit" value="Save"></button>
-                                        </div>
-                                    </form>
-                                    <br><br>
-                                    <table bgcolor="#ffd555">
-                                        <tr>
-                                            <th style="padding: 30px">Name</th>
-                                            <th style="padding: 30px">Comment</th>
-                                        </tr>
-
-
-                                        @foreach ($testimonydata as $data)
-                                            <tr align="center">
-                                                <td style="padding-bottom: 30px">{{ $data->name }}</td>
-                                                <td style="padding-bottom: 30px">{{ $data->comment }}</td>
-                                            </tr>
-                                        @endforeach
-                                    </table>
-                                </section>
-                            </div>
+                                <div class="pb-2">
+                                    <label class="font-bold">Name</label>
+                                    <br>
+                                    <input style="color:#000" type="text" name="name" placeholder="name" required>
+                                </div>
+                                
+                                <textarea
+                                name="comment"
+                                placeholder="{{ __('Testimony') }}" placeholder="name" class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
+                            ></textarea>
+        
+        
+                                <div class="pb-10 pt-2">
+                                    <button
+                                        class="bg-orange-700 hover:bg-yellow-300 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow justify-items-center"><input
+                                            style="color:#fff" type="submit" value="Save"></button>
+                                </div>
+                            </form>
+                            <table bgcolor="#ffd555">
+                                <tr>
+                                    <th style="padding: 30px">Name's </th>
+                                    <th style="padding: 30px">Comment</th>
+                                </tr>
+        
+        
+                                @foreach ($testimonydata as $data)
+                                <tr align="center">
+                                    <td style="padding-bottom: 30px">{{($data->name) }}</td>
+                                    <td style="padding-bottom: 30px">{{($data->comment) }}</td>
+                                </tr>
+                                @endforeach
+                            </table>
+                            </section>
                         </div>
                     </div>
                 </div>

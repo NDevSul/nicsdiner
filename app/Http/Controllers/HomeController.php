@@ -22,7 +22,7 @@ class HomeController extends Controller
         $user_id=Auth::id();
         $count=cart::where('user_id', $user_id)->count();
 
-        return view("menu", compact('data','count', ));
+        return view("menu", compact('data','count'));
     }
 
     public function index()
@@ -48,7 +48,7 @@ class HomeController extends Controller
             return view('admin.admin');
         } else {
 
-
+            $testimonydata = testimony::all();
             $user_id = Auth::id();
             $count = cart::where('user_id', $user_id)->count();
             return view('home', compact('data', "datagallery", "count"));
@@ -135,7 +135,12 @@ if('user_id' )
         return redirect()->back();
     }
 
+    public function viewtestimony()
+    {
 
+        $testimonydata = testimony::all();
+        return view("home", compact("testimonydata"));
+    }
 
     
     // public function uploadgallery(Request $request)

@@ -12,17 +12,16 @@
 
         <div class="row">
             @foreach ($datagallery as $data)
-            <div class="col-lg-3">
-                <div class="gallery-item">
-                    <div class="thumb">
-                        <img height="200" width="200" src="galleryimage/{{$data->image}}" alt="Makanan">
-                    </div>
-                    <div class="down-content">
-                        <h4>{{$data->name}}</h4>
+                <div class="col-lg-3">
+                    <div class="gallery-item">
+                        <div class="thumb">
+                            <img height="200" width="200" src="galleryimage/{{ $data->image }}" alt="Makanan">
+                        </div>
+                        <div class="down-content">
+                            <h4>{{ $data->name }}</h4>
+                        </div>
                     </div>
                 </div>
-            </div>
-
             @endforeach
 
         </div>

@@ -207,11 +207,11 @@
 
 
 
-    <!-- ***** Chefs Area Starts ***** -->
+    <!-- ***** Gallery Area Starts ***** -->
 
     @include('gallery')
 
-    <!-- ***** Chefs Area Ends ***** -->
+    <!-- ***** Gallery Area Ends ***** -->
 
     <!-- ***** Order Now Area Starts ***** -->
     <section class="section" id="reservation">

@@ -129,7 +129,7 @@ class AdminController extends Controller
 
         $data->name= $request->name;
         $data->save();
-        return redirect()->back();
+        return redirect("viewgallery");
         }
     }
 

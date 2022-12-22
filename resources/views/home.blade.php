@@ -303,6 +303,20 @@
                                             style="color:#fff" type="submit" value="Save"></button>
                                 </div>
                             </form>
+                            <table bgcolor="orange">
+                                <tr>
+                                    <th style="padding: 30px">Name </th>
+                                    <th style="padding: 30px">Comment</th>
+                                </tr>
+        
+        
+                                @foreach ($data as $data)
+                                <tr align="center">
+                                    <td style="padding-bottom: 30px">{{ url('/viewtestimony', $data->name) }}</td>
+                                    <td style="padding-bottom: 30px">{{url ('/viewtestimony', $data->name) }}</td>
+                                </tr>
+                                @endforeach
+                            </table>
                             </section>
                         </div>
                     </div>

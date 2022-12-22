@@ -124,30 +124,37 @@ if('user_id' )
 
     public function addtestimony(Request $request)
     {
-        $testimonydata = new testimony();
+        $data = new testimony();
 
-        $testimonydata->name = $request->comment;
-        $testimonydata->comment = $request->comment;
+        $data->name = $request->comment;
+        $data->comment = $request->comment;
 
-        $testimonydata->save();
+        $data->save();
         return redirect()->back();
     }
 
-    public function showtestimony(Request $request, $id)
+    public function viewtestimony()
     {
 
-        if (Auth::id() == $id) {
-if('user_id' )
-            $testimonydata = testimony::select('*')->where('user_id', '=', $id)->get();
-
-            $data = testimony::where('user_id', $id)->join('users', 'testimony.user_id', "=", "users.id")->get();
-
-            return view('showtestimony', compact('data', 'testimonydata'));
-            
-        } else {
-            return redirect()->back();
-        }
+        $data = testimony::all();
+        return view("home", compact("data"));
     }
+
+//     public function showtestimony(Request $request, $id)
+//     {
+
+//         if (Auth::id() == $id) {
+// if('user_id' )
+//             $testimonydata = testimony::select('*')->where('user_id', '=', $id)->get();
+
+//             $data = testimony::where('user_id', $id)->join('users', 'testimony.user_id', "=", "users.id")->get();
+
+//             return view('showtestimony', compact('data', 'testimonydata'));
+            
+//         } else {
+//             return redirect()->back();
+//         }
+//     }
 
 
 

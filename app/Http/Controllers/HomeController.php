@@ -33,13 +33,15 @@ class HomeController extends Controller
             $data = food::all();
 
         $datagallery = FoodGallery::all();
-        return view("home", compact("data", "datagallery"));
+        $testimonydata = testimony::all();
+        return view("home", compact("data", "datagallery", "testimonydata"));
     }
 
     public function redirects()
     {
         $data = food::all();
         $datagallery = FoodGallery::all();
+        $testimonydata = testimony::all();
         $usertype = Auth::user()->usertype;
 
         if ($usertype == '1') {
@@ -126,7 +128,7 @@ if('user_id' )
     {
         $data = new testimony();
 
-        $data->name = $request->comment;
+        $data->name = $request->name;
         $data->comment = $request->comment;
 
         $data->save();
@@ -136,9 +138,28 @@ if('user_id' )
     public function viewtestimony()
     {
 
-        $data = testimony::all();
-        return view("home", compact("data"));
+        $testimonydata = testimony::all();
+        return view("home", compact("testimonydata"));
     }
+
+    
+    // public function uploadgallery(Request $request)
+    // {
+
+    //     $data = new FoodGallery;
+
+    //     $image = $request->image;
+
+    //     $imagename = time() . '.' . $image->getClientOriginalExtension();
+    //     $request->image->move('galleryimage', $imagename);
+
+    //     $data->image = $imagename;
+
+    //     $data->name = $request->name;
+
+    //     $data->save();
+    //     return redirect()->back();
+    // }
 
 //     public function showtestimony(Request $request, $id)
 //     {

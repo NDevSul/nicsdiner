@@ -291,9 +291,8 @@
                                 </div>
                                 
                                 <textarea
-                                name="message"
-                                placeholder="{{ __('Testimony') }}"
-                                name="name" placeholder="name" class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
+                                name="comment"
+                                placeholder="{{ __('Testimony') }}" placeholder="name" class="block w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
                             ></textarea>
         
         
@@ -303,17 +302,17 @@
                                             style="color:#fff" type="submit" value="Save"></button>
                                 </div>
                             </form>
-                            <table bgcolor="orange">
+                            <table bgcolor="#ffd555">
                                 <tr>
                                     <th style="padding: 30px">Name </th>
                                     <th style="padding: 30px">Comment</th>
                                 </tr>
         
         
-                                @foreach ($data as $data)
+                                @foreach ($testimonydata as $data)
                                 <tr align="center">
-                                    <td style="padding-bottom: 30px">{{ url('/viewtestimony', $data->name) }}</td>
-                                    <td style="padding-bottom: 30px">{{url ('/viewtestimony', $data->name) }}</td>
+                                    <td style="padding-bottom: 30px">{{($data->name) }}</td>
+                                    <td style="padding-bottom: 30px">{{($data->comment) }}</td>
                                 </tr>
                                 @endforeach
                             </table>

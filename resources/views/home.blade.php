@@ -203,7 +203,9 @@
 
 
 
+    <!-- ***** Menu Area Ends ***** -->
     @include('food')
+    <!-- ***** Menu Area Ends ***** -->
 
 
 
@@ -269,7 +271,7 @@
                                 <div class="row">
                                     <div class="col-lg-6 offset-lg-3">
                                         <ul>
-                                            <li><a href='#tabs-1'><img src="assets/images/tab-icon-01.png"
+                                            <li><a href='#testimony' id="testimony"><img src="assets/images/tab-icon-01.png"
                                                         alt="">Testimony!!</a></li>
                                         </ul>
                                     </div>
